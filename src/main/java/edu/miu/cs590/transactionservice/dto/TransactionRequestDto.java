@@ -14,7 +14,7 @@ public class TransactionRequestDto {
     private String uuid;
 
     @NotNull(message = "Order id is required")
-    private Long orderId;
+    private String orderId;
     @NotNull(message = "Amount is required")
     private long amount;
     @NotNull(message = "Payment method is required")

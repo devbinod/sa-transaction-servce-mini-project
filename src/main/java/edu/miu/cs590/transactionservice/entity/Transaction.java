@@ -19,8 +19,6 @@ import java.util.UUID;
 @Entity
 @EqualsAndHashCode(callSuper = true)
 public class Transaction extends BaseEntity {
-
-
     private String orderId;
     @Column(name = "user_id")
     private String username;
@@ -29,10 +27,4 @@ public class Transaction extends BaseEntity {
     private String name;
     @Enumerated(EnumType.STRING)
     private TransactionStatus status = TransactionStatus.PROCESSED;
-
-
-
-
-
-
 }
