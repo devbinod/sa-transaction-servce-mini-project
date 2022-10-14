@@ -21,7 +21,7 @@ import java.util.UUID;
 public class Transaction extends BaseEntity {
 
 
-    private Long orderId;
+    private String orderId;
     @Column(name = "user_id")
     private String username;
     private long amount;
