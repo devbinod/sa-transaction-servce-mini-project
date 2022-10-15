@@ -1,11 +1,9 @@
 FROM maven:latest as builder
-WORKDIR /build
-RUN rm -rf *
+WORKDIR source
 COPY . .
 RUN mvn clean install -DskipTests
 
-FROM openjdk:17.0.2-jdk as deploy
-MAINTAINER BINOD PANT
-WORKDIR /app
-COPY --from=builder /build/target/*.jar transaction-service.jar
-CMD ["java","-jar","transaction-service.jar"]
+FROM openjdk:latest as deployer
+WORKDIR app
+COPY --from=builder source/target/*.jar build.jar
+ENTRYPOINT ["java", "-jar", "build.jar"]
